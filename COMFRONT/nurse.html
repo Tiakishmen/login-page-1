@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nurse Dashboard</title>
+ 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f7ff;
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .dashboard-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 150, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background-color: #2a5c9e;
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .separator {
+            height: 4px;
+            background-color: #e0e0e0;
+            margin: 0 20px;
+        }
+        
+        .menu-section {
+            padding: 30px;
+        }
+        
+        .menu-item {
+            background-color: #f8fbff;
+            border-left: 5px solid #2a5c9e;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+        
+        .menu-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .menu-item h3 {
+            color: #2a5c9e;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .menu-item p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .menu-icon {
+            background-color: #e8f1ff;
+            color: #2a5c9e;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #eee;
+        }
+        
+        .logout-btn {
+            background-color: #f8fbff;
+            color: #2a5c9e;
+            border: 2px solid #2a5c9e;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background-color: #2a5c9e;
+            color: white;
+        }
+        
+        @media (max-width: 600px) {
+            .dashboard-container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .menu-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>Nurse Dashboard</h1>
+            <p>Welcome, Nurse</p>
+        </div>
+        
+        <div class="separator"></div>
+        
+        <div class="menu-section">
+            <div class="menu-item">
+                <div class="menu-icon">
+                    <i class="fas fa-user-injured"></i>
+                </div>
+                <h3>Assigned Patients</h3>
+                <p>View patients under your care</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="menu-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3>Update Vitals</h3>
+                <p>Record temperature, BP, pulse</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="menu-icon">
+                    <i class="fas fa-file-medical-alt"></i>
+                </div>
+                <h3>View Reports</h3>
+                <p>Check patient medical reports</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <button class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Add interactivity to menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const title = this.querySelector('h3').textContent;
+                alert(`Navigating to: ${title}`);
+            });
+        });
+        
+        // Logout button functionality
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                alert('Logging out...');
+                // In a real application, this would redirect to login page
+                // window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>
